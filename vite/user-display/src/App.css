@@ -1,0 +1,80 @@
+.main{
+  size: 20px;
+  padding: 5px 100px;
+}
+.container{
+  padding: 10px;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 30px;
+  display: grid;
+  grid-template-areas: "aa bb dd ff hh jj" "aa cc ee gg ii jj";
+}
+.container:hover {
+  background-color: cyan;
+}
+.container >div:nth-child(1){
+  grid-area: aa;
+}
+.container >div:nth-child(2){
+  grid-area: bb;
+}
+.container >div:nth-child(3){
+  grid-area: cc;
+}
+.container >div:nth-child(4){
+  grid-area: dd;
+}
+.container >div:nth-child(5){
+  grid-area: ee;
+}
+.container >div:nth-child(6){
+  grid-area: ff;
+}
+.container >div:nth-child(7){
+  grid-area: gg;
+}
+.container >div:nth-child(8){
+  grid-area: hh;
+}
+.container >div:nth-child(9){
+  grid-area: ii;
+}
+.container >div:nth-child(10){
+  grid-area: jj;
+}
+.container >div{
+  padding: 5px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+img{
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+}
+.follow{
+  border: 1px solid black;
+  padding: 10px;
+  height: 50px;
+  width: 70px;
+  border-radius: 30px;
+}
+.follow:hover{
+  background-color: olive;
+  color: white;
+}
+.sort{
+  display: flex;
+  justify-content: space-evenly;
+  
+}
+.sort >button{
+  padding: 10px;
+  background-color: rgb(229, 142, 142);
+}
