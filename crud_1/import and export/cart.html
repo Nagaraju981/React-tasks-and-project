@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cart</title>
+    <style>
+      #navbar_import {
+        display: flex;
+        justify-content: space-between;
+        background-color: black;
+        color: white;
+      }
+
+      #options {
+        display: flex;
+        gap: 10px;
+        position: absolute;
+        right: 20px;
+      }
+      #navbar_import a {
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <h1>cart page</h1>
+  </body>
+</html>
+<script type="module">
+  import { navbar, even } from "./component/navbar.js"; // default export
+
+  let navbarDiv = document.getElementById("navbar");
+
+  navbarDiv.innerHTML = navbar(); // it will return us html
+
+  import { print } from "./1.js";
+
+  print();
+</script>
