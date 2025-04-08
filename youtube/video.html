@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>this is single video</h1>
+    <div id="video_div"></div>
+    <!-- <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/j9jGXgO8LhM?si=DcqAG4ugte7jj21-"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe> -->
+  </body>
+</html>
+<script>
+  const showClickedVideo = () => {
+    let video_data = JSON.parse(localStorage.getItem("clicked_video"));
+
+    let video_div = document.getElementById("video_div");
+
+    let iframe = document.createElement("iframe");
+    iframe.src = `https://www.youtube.com/embed/${video_data.videoId}`;
+    iframe.width = "100%";
+    iframe.height = "500px";
+
+    iframe.setAttribute("allowfullscreen", true);
+
+    video_div.append(iframe);
+  };
+
+  showClickedVideo();
+</script>

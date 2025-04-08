@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Youtube</h1>
+
+    <input type="text" id="search" />
+    <button onclick="searchVideo()">Search</button>
+
+    <div id="result"></div>
+  </body>
+</html>
+<script>
+  let APIKEY = "AIzaSyCTwY_zfywZodj77BG2HCwpBiP2RyN2p1c";
+
+  let search_result_Div = document.getElementById("result");
+
+  async function searchVideo() {
+    try {
+      let query = document.getElementById("search").value;
+
+      let response = await fetch(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${query}&type=video&maxResults=20&key=${APIKEY}`
+      );
+
+      let data = await response.json();
+      console.log(data.items);
+      appendingToDom(data.items);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function appendingToDom(array) {
+    search_result_Div.innerHTML = "";
+
+    array.forEach((element) => {
+      const {
+        snippet,
+        id: { videoId },
+      } = element;
+
+      let url = snippet.thumbnails.medium.url;
+
+      let title = snippet.title;
+
+      let div = document.createElement("div");
+
+      let img = document.createElement("img");
+      img.src = url;
+      let name = document.createElement("h4");
+      name.innerText = title;
+
+      div.append(img, name);
+
+      let data = {
+        videoId: videoId,
+        snippet,
+      };
+
+      div.onclick = () => {
+        showVideo(data);
+      };
+
+      search_result_Div.append(div);
+    });
+  }
+
+  function showVideo(data) {
+    window.location.href = "video.html";
+
+    localStorage.setItem("clicked_video", JSON.stringify(data));
+  }
+</script>
